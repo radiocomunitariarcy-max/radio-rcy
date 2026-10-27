@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <title>Radio Comunitaria Yanacona – RCY</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Radio Comunitaria Yanacona (Rcy), al servicio del Pubueblo. Programación cultural, informativa y comunitaria desde el sur del Cauca." />
+
+  <meta name="theme-color" content="#0f3d2e" />
+
+
+
+  <style>
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+
+    body {
+
+      font-family:'Segoe UI', Arial, sans-serif;
+
+      background: radial-gradient(circle at top, #1abc9c, #0f3d2e 40%, #000 90%);
+
+      color:#fff;
+
+      line-height:1.6;
+
+    }
+
+
+
+    /* HEADER / NAV */
+
+    header {
+
+      position:sticky;
+
+      top:0;
+
+      z-index:20;
+
+      background:rgba(0,0,0,0.8);
+
+      backdrop-filter:blur(6px);
+
+      padding:10px 20px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+    }
+
+    .logo {
+
+      font-weight:bold;
+
+      font-size:1.1rem;
+
+    }
+
+    nav a {
+
+      color:#fff;
+
+      text-decoration:none;
+
+      margin-left:15px;
+
+      font-size:0.95rem;
+
+    }
+
+    nav a:hover { color:#ffd600; }
+
+
+
+    /* HERO + PLAYER */
+
+    .hero {
+
+      text-align:center;
+
+      padding:60px 20px 30px;
+
+      background:linear-gradient(160deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+
+    }
+
+    .hero h1 {
+
+      font-size:2.4rem;
+
+      margin-bottom:10px;
+
+    }
+
+    .hero p {
+
+      max-width:750px;
+
+      margin:0 auto 10px;
+
+      font-size:1.05rem;
+
+    }
+
+    .live {
+
+      margin-top:10px;
+
+      color:#ff6b6b;
+
+      font-weight:bold;
+
+      animation:blink 1.2s infinite;
+
+    }
+
+    @keyframes blink {
+
+      0%,100% {opacity:1;}
+
+      50% {opacity:0.3;}
+
+    }
+
+
+
+    .player-box {
+
+      margin:30px auto 10px;
+
+      max-width:420px;
+
+      padding:25px 25px 30px;
+
+      background:rgba(255,255,255,0.08);
+
+      border-radius:20px;
+
+      box-shadow:0 0 25px rgba(0,0,0,0.7);
+
+      text-align:center;
+
+    }
+
+    .cover {
+
+      width:180px;
+
+      height:180px;
+
+      margin:0 auto 15px;
+
+      border-radius:50%;
+
+      background:radial-gradient(circle at center, #ffd600, #1abc9c);
+
+      animation:spin 10s linear infinite;
+
+      box-shadow:0 0 25px rgba(255,214,0,0.7);
+
+    }
+
+    @keyframes spin {
+
+      from {transform:rotate(0deg);}
+
+      to {transform:rotate(360deg);}
+
+    }
+
+    audio {
+
+      width:100%;
+
+      margin-top:10px;
+
+    }
+
+    .info-player {
+
+      margin-top:12px;
+
+      font-size:0.95rem;
+
+      opacity:0.9;
+
+    }
+
+
+
+    /* BOTONES PRINCIPALES */
+
+    .buttons-main {
+
+      text-align:center;
+
+      margin:25px 10px 40px;
+
+    }
+
+    .btn {
+
+      display:inline-block;
+
+      margin:6px;
+
+      padding:12px 24px;
+
+      border-radius:30px;
+
+      text-decoration:none;
+
+      font-weight:bold;
+
+      color:#fff;
+
+      background:linear-gradient(135deg,#ffd600,#ff8c42);
+
+      box-shadow:0 4px 12px rgba(0,0,0,0.5);
+
+      transition:0.25s;
+
+      font-size:0.95rem;
+
+    }
+
+    .btn:hover {
+
+      transform:scale(1.05) translateY(-1px);
+
+      box-shadow:0 6px 15px rgba(0,0,0,0.7);
+
+    }
+
+    .btn.secondary {
+
+      background:linear-gradient(135deg,#1abc9c,#16a085);
+
+    }
+
+    .btn.whatsapp {
+
+      background:linear-gradient(135deg,#25d366,#1ebe5d);
+
+    }
+
+
+
+    /* SECCIONES GENERALES */
+
+    section {
+
+      padding:40px 20px;
+
+      max-width:1100px;
+
+      margin:0 auto;
+
+    }
+
+    h2 {
+
+      font-size:1.8rem;
+
+      margin-bottom:15px;
+
+      text-align:center;
+
+      color:#ffd600;
+
+    }
+
+    p { font-size:0.98rem; }
+
+
+
+    .grid-3 {
+
+      display:grid;
+
+      grid-template-columns:repeat(3, 1fr);
+
+      gap:20px;
+
+      margin-top:15px;
+
+    }
+
+    .card {
+
+      background:rgba(0,0,0,0.55);
+
+      border-radius:16px;
+
+      padding:18px 18px 20px;
+
+      box-shadow:0 0 18px rgba(0,0,0,0.6);
+
+    }
+
+    .card h3 {
+
+      margin-bottom:8px;
+
+      color:#ffd600;
+
+    }
+
+    .card ul { padding-left:18px; }
+
+
+
+    /* GALERIA */
+
+    .gallery {
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+      gap:15px;
+
+      margin-top:10px;
+
+    }
+
+    .gallery img {
+
+      width:100%;
+
+      border-radius:14px;
+
+      box-shadow:0 0 15px rgba(0,0,0,0.7);
+
+    }
+
+    .gallery figure { text-align:center; font-size:0.9rem; }
+
+
+
+    /* TESTIMONIOS */
+
+    .testimonials blockquote {
+
+      background:rgba(0,0,0,0.6);
+
+      border-left:4px solid #ffd600;
+
+      padding:12px 14px;
+
+      margin:10px auto;
+
+      max-width:800px;
+
+      font-style:italic;
+
+      border-radius:10px;
+
+    }
+
+
+
+    /* CONTACTO */
+
+    .contact-grid {
+
+      display:grid;
+
+      grid-template-columns:2fr 1fr;
+
+      gap:20px;
+
+      margin-top:10px;
+
+    }
+
+    form input, form textarea {
+
+      width:100%;
+
+      padding:8px;
+
+      margin-bottom:10px;
+
+      border-radius:6px;
+
+      border:1px solid #ccc;
+
+      font-family:inherit;
+
+    }
+
+
+
+    footer {
+
+      text-align:center;
+
+      padding:18px 10px 22px;
+
+      margin-top:30px;
+
+      background:rgba(0,0,0,0.9);
+
+      font-size:0.9rem;
+
+    }
+
+    .social a {
+
+      color:#ffd600;
+
+      margin:0 8px;
+
+      text-decoration:none;
+
+    }
+
+
+
+    @media (max-width:768px){
+
+      header { flex-direction:column; align-items:flex-start; }
+
+      nav { margin-top:6px; }
+
+      .grid-3 { grid-template-columns:1fr; }
+
+      .contact-grid { grid-template-columns:1fr; }
+
+      .hero { padding-top:70px; }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+  <div class="logo">🎙 Radio Comunitaria Yanacona – RCY</div>
+
+  <nav>
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#nosotros">Nosotros</a>
+
+    <a href="#programacion">Programación</a>
+
+    <a href="#galeria">Galería</a>
+
+    <a href="#contacto">Contacto</a>
+
+  </nav>
+
+</header>
+
+
+
+<!-- INICIO + PLAYER -->
+
+<section id="inicio" class="hero">
+
+  <h1>Al servicio del Pueblo</h1>
+
+  <p>
+
+    Programación cultural, informativa y comunitaria desde el sur del Cauca.
+
+    Comunicación propia, identidad y territorio al servicio de la comunidad del Resguardo de Rioblanco y del Pueblo Yanacona.
+
+  </p>
+
+  <div class="live">🔴 EN VIVO AHORA</div>
+
+
+
+  <div class="player-box">
+
+    <div class="cover"></div>
+
+    <audio controls autoplay>
+
+      <source src="https://server1.intermediacolombia.com:8096/stream" type="audio/mpeg">
+
+      Tu navegador no soporta audio en línea.
+
+    </audio>
+
+    <div class="info-player">
+
+      Comunicación propia · Cultura · Territorio
+
+    </div>
+
+  </div>
+
+
+
+  <div class="buttons-main">
+
+    <a class="btn" href="https://www.appcreator24.com/app3885594-n0dmzh" target="_blank">
+
+      📲 Descargar la App
+
+    </a>
+
+    <a class="btn secondary" href="https://www.facebook.com/profile.php?id=100064004648506" target="_blank">
+
+      👍 Facebook Oficial
+
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/573206760215" target="_blank">
+
+      💬 WhatsApp Comunitario
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- NOSOTROS -->
+
+<section id="nosotros">
+
+  <h2>¿Quiénes somos?</h2>
+
+  <p>
+
+    La Fundación Radio Comunitaria Yanacona es una emisora comunitaria ubicada en el
+
+    Resguardo de Rioblanco, municipio de Sotará, Cauca. Es un espacio de aprendizaje
+
+    colectivo para fortalecer la organización propia, defender el territorio y acompañar
+
+    a la comunidad con información, educación y música variada.[web:38][web:48]
+
+  </p>
+
+  <br>
+
+  <div class="grid-3">
+
+    <div class="card">
+
+      <h3>Misión</h3>
+
+      <p>
+
+        Ser un medio de comunicación al servicio de las autoridades y procesos del Pueblo Yanacona,
+
+        promoviendo la palabra, la participación y la educación propia en todo el macizo colombiano.[web:48]
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Visión</h3>
+
+      <p>
+
+        Consolidarnos como referente de radio comunitaria, fortaleciendo la identidad cultural,
+
+        el cuidado de la Madre Tierra y la articulación con otras organizaciones del territorio.[web:48]
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Valores</h3>
+
+      <p>
+
+        Identidad, solidaridad, participación, respeto por la naturaleza y defensa del territorio
+
+        guían cada programa y proyecto de la emisora.[web:48]
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- PROGRAMACIÓN / SERVICIOS -->
+
+<section id="programacion">
+
+  <h2>Programación y servicios</h2>
+
+  <div class="grid-3">
+
+    <div class="card">
+
+      <h3>Programación radial</h3>
+
+      <p>RCY ofrece una programación variada pensada para complacer el gusto de sus oyentes.[web:34]</p>
+
+      <ul>
+
+        <li>Amanecer en el Macizo – música tradicional y mensajes comunitarios.</li>
+
+        <li>Voces del Territorio – información y análisis sobre la actualidad local.</li>
+
+        <li>Juventud Yanacona – espacios juveniles, música y participación.</li>
+
+      </ul>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Servicios de comunicación</h3>
+
+      <ul>
+
+        <li>Difusión de campañas comunitarias y educativas.</li>
+
+        <li>Transmisión de eventos culturales, deportivos y organizativos.</li>
+
+        <li>Producción de cuñas para procesos y proyectos del territorio.</li>
+
+      </ul>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Alianzas y proyectos</h3>
+
+      <p>
+
+        Trabajamos articuladamente con autoridades ancestrales, organizaciones del Pueblo Yanacona
+
+        y otras radios comunitarias para fortalecer la comunicación al servicio de la comunidad.[web:44]
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <h2>Galería del territorio</h2>
+  <p style="text-align:center; margin-bottom:10px;">
+    Imágenes del territorio, las actividades comunitarias y la vida alrededor de la radio.
+  </p>
+  <div class="gallery">
+    <figure>
+      <img src="cabina2.jpg" alt="Cabina de la Radio Comunitaria Yanacona" loading="lazy" decoding="async">
+      <figcaption>Cabina de la emisora comunitaria RCY.</figcaption>
+    </figure>
+    <figure>
+      <img src="paisaje3.jpg" alt="Paisaje del Resguardo de Rioblanco" loading="lazy" decoding="async">
+      <figcaption>Territorio del Resguardo de Rioblanco, macizo colombiano.</figcaption>
+    </figure>
+    <figure>
+      <img src="actividad1.jpg" alt="Actividad cultural Yanacona" loading="lazy" decoding="async">
+      <figcaption>Jornada cultural y educativa del Pueblo Yanacona.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+
+<section class="testimonials">
+
+  <h2>Lo que dice la comunidad</h2>
+
+  <blockquote>
+
+    “La radio nos mantiene informados y conectados con nuestras raíces en el territorio.”  
+
+    <strong>– Oyente del resguardo</strong>
+
+  </blockquote>
+
+  <blockquote>
+
+    “RCY es un espacio para que la voz del Pueblo Yanacona se escuche en todo el macizo.”  
+
+    <strong>– Integrante de la comunidad</strong>
+
+  </blockquote>
+
+</section>
+
+
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+  <h2>Contacto</h2>
+
+  <div class="contact-grid">
+
+    <div>
+
+      <p>
+
+        Si quieres comunicarte con la Radio Comunitaria Yanacona, proponer contenidos
+
+        o coordinar alianzas, completa el siguiente formulario o escríbenos por WhatsApp.
+
+      </p>
+
+      <br>
+
+      <form action="mailto:tucorreo@ejemplo.com" method="post" enctype="text/plain">
+
+        <input type="text" name="nombre" placeholder="Nombre" required />
+
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+
+        <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+
+        <button type="submit" class="btn secondary">Enviar mensaje</button>
+
+      </form>
+
+    </div>
+
+    <div>
+
+      <p><strong>Ubicación</strong><br>
+
+        Resguardo de Rioblanco, Municipio de Sotará, Departamento del Cauca, Colombia.
+
+      </p>
+
+      <p><strong>WhatsApp Comunitario</strong><br>
+
+        <a class="social" href="https://wa.me/573206760215" target="_blank">+57 320 676 0215</a>
+
+      </p>
+
+      <div class="social">
+
+        <p><strong>Redes</strong></p>
+
+        <a href="https://www.facebook.com/profile.php?id=100064004648506" target="_blank">Facebook</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer>
+
+  © 2026 Radio Comunitaria Yanacona – RCY · Desde el territorio para el mundo 🌎
+
+</footer>
+
+
+
+</body>
+
+</html>. 
